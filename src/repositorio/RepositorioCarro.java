@@ -40,7 +40,6 @@ public class RepositorioCarro {
 
 	public boolean addCarro(Carro carro) {
 		if (buscarCarro(carro.getPlaca()) == null) {
-			carros.add(carro);
 			// bloco pro hibernate
 			entityManager.getTransaction().begin();
 			entityManager.persist(carro);
@@ -99,13 +98,13 @@ public class RepositorioCarro {
 
 	public List<Carro> carrosDisponiveis(){
 		List<Carro> carrosDoBD = getCarros();
-		List<Carro> carrosDisponieis = new ArrayList<Carro>();
+		List<Carro> carrosDisponiveis = new ArrayList<Carro>();
 		for (Carro carro : carrosDoBD) {
 			if(!carro.isAlugado()) {
-				carrosDisponieis.add(carro);
+				carrosDisponiveis.add(carro);
 			}
 		}
-		return carrosDisponieis;
+		return carrosDisponiveis;
 	}
 	@SuppressWarnings("unchecked")
 	public List<Carro> getCarros() {
