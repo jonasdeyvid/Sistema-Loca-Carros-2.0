@@ -14,11 +14,10 @@ import Entidades.Carro;
 
 public class RepositorioCarro {
 	private static RepositorioCarro repositorio;
-	private List<Carro> carros;
 	protected EntityManager entityManager;
 
 	private RepositorioCarro() {
-		carros = new ArrayList<Carro>();
+		
 		entityManager = getEntityManager();
 	}
 
